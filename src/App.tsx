@@ -1,5 +1,5 @@
 import React from 'react';
-import { Album } from './components/Album';
+import { PhotosScreen } from './screens/photos/PhotosScreen';
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       </header>
       <div className='main-content'>
         <div className="container-fluid">
-          <Album />
+          <PhotosScreen />
         </div>
       </div>
     </div>

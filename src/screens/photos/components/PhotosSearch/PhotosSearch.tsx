@@ -1,14 +1,14 @@
 import React, { FunctionComponent, useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { setPhotosParams } from '../store/thunks/photo-thunk';
-import { PhotosParams } from '../types/photos';
+import styles from './PhotosSearch.module.scss'; 
+import { setPhotosParams } from '../../../../store/thunks/photo-thunk';
+import { useDispatch } from '../../../../hooks/dispatch';
+import classNames from 'classnames';
+import { useTypedSelector } from '../../../../hooks/useTypedSelector';
+import { photosSelector } from '../../../../store/selectors/photos';
 
-export interface AlbumSearchProps {
-    photosParams: PhotosParams
-}
-
-export const AlbumSearch: FunctionComponent<AlbumSearchProps> = ({photosParams}) => {
-    const dispatch = useDispatch<any>() //todo: check type
+export const PhotosSearch: FunctionComponent = () => {
+    const {photosParams} = useTypedSelector(photosSelector);
+    const dispatch = useDispatch()
     const [input, setInput] = useState('');
 
     const deleteSearchParams = () => {
@@ -36,7 +36,7 @@ export const AlbumSearch: FunctionComponent<AlbumSearchProps> = ({photosParams})
 
     return (
         <>
-            <div className="input-group mb-3 album-search">
+            <div className={classNames(styles['album-search'], 'input-group mb-3')}>
                 <input
                     type="text"
                     className="form-control"
@@ -49,11 +49,11 @@ export const AlbumSearch: FunctionComponent<AlbumSearchProps> = ({photosParams})
                             handleSearchParams();
                         }
                     }}
-                    onChange={e => setInput(e.target.value)}/>
+                    onChange={e => setInput(e.target.value)} />
                 {(photosParams?.title_like?.length) && (
                     <button
                         type="button"
-                        className="btn-close album-search__delete"
+                        className={classNames(styles['album-search__delete'], 'btn-close')}
                         onClick={handleDeleteSearchParams}
                         aria-label="Reset search"></button>
                 )}
