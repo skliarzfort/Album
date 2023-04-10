@@ -1,0 +1,38 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+
+
+.album-search__delete {
+    border: 1px solid $input-border-color;
+    border-color: $input-border-color $input-bg;
+    border-right-width: 0;
+    padding-left: $input-btn-padding-x;
+    padding-right: $input-btn-padding-x;
+    height: auto;
+    opacity: 1;
+    position: relative;
+    background: none;
+
+    :not(.btn-check) &:active,
+    &:hover,
+    &:focus,
+    &:active {
+        opacity: 1;
+        outline: none;
+        box-shadow: none;
+        color: $red;
+        border-color: $input-border-color $input-bg;
+    }
+
+    &:after {
+        position: absolute;
+        content: '';
+        inset: 0;
+        background: transparent escape-svg($btn-close-bg) center / $btn-close-width auto no-repeat;
+        transition: $transition-fade;
+    }
+
+    &:hover:after {
+        opacity: 0.5;
+    }
+}

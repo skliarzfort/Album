@@ -1,0 +1,40 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+
+.thumbnail {
+    padding: $input-btn-padding-x;
+    border-radius: $border-radius;
+    border: 1px solid $input-border-color;
+    box-shadow: $box-shadow-sm;
+    width: 100%;
+    flex: 1 0 auto;
+}
+
+.thumbnail__img {
+    position: relative;
+    margin-bottom: 0.5em;
+
+    &:after {
+        display: block;
+        content: '';
+        padding-top: 100%;
+    }
+
+    img {
+        position: absolute;
+        inset: 0;
+        max-width: 100%;
+        object-fit: contain;
+        object-position: 50% 50%;
+    }
+}
+
+.thumbnail__note {
+    position: absolute;
+    z-index: 2;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    padding: 3px;
+    background: rgba($white, 0.5);
+}

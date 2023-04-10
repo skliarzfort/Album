@@ -2,8 +2,8 @@ import { Dispatch } from "redux"
 import { AlbumAction, AlbumsActionTypes } from "../../types/album"
 import axios from 'axios'
 
-export const fetchAlbum = () => {
-    return async (dispatch: Dispatch<AlbumAction>) => {
+export const fetchAlbum = (): any => {
+    return async (dispatch: Dispatch<AlbumAction>): Promise<void> => {
         try {
             dispatch({type: AlbumsActionTypes.FETCH_ALBUMS})
             const response = await axios.get('https://jsonplaceholder.typicode.com/albums')

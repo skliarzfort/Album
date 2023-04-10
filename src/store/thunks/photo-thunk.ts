@@ -2,8 +2,8 @@ import { Dispatch } from "redux"
 import axios from 'axios'
 import { PhotosAction, PhotosActionTypes, PhotosParams } from "../../types/photos"
 
-export const fetchPhotos = (params: PhotosParams) => {
-    return async (dispatch: Dispatch<PhotosAction>) => {
+export const fetchPhotos = (params: PhotosParams): any => {
+    return async (dispatch: Dispatch<PhotosAction>): Promise<void> => {
         try {
             dispatch({type: PhotosActionTypes.FETCH_PHOTOS})
             const response = await axios.get('https://jsonplaceholder.typicode.com/photos', {
