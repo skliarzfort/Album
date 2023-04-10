@@ -43,7 +43,7 @@ export const PhotosScreen: FunctionComponent = () => {
             ) : (photos.length) ? (
                 <div className='row'>
                     <>
-                        {filterItemsByPage(photos, page).map((photo: Photo, index) => {
+                        {filterItemsByPage(photos, page).map((photo: Photo, index: number) => {
                             return (
                                 <div key={index} className='col-12 col-sm-6 col-lg-4 mb-4 d-flex flex-column'>
                                     <PhotoItem photo={photo} />
